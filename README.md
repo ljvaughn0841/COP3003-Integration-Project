@@ -7,7 +7,7 @@ I have some experience in C++ but am still very much a beginer especially so whe
 The reason I'm making a productivity app for the assignment is because I've been in a bit of a slump lately and I think I have a few good ideas to increase my productivity.
 
 ## Demonstration
-
+![JdpC3LPn0t](https://user-images.githubusercontent.com/72235620/140587640-8ea56080-dbaa-44d4-b40d-7e5364ef27e5.gif)
 
 ## Documentation
 
@@ -35,8 +35,14 @@ Lou Vaughn
 
 <!-- Web sites / tutorials used -->
 https://github.com/PV-COP/PV-README-TEMPLATE/blob/master/TemplateWithInfo.md
+
 https://cpb-us-w2.wpmucdn.com/u.osu.edu/dist/7/11881/files/2018/02/QtCreatorGitTutorial-2ahr2m0.pdf
+
 https://www.toptal.com/developers/gitignore
+
+https://www.youtube.com/playlist?list=PLS1QulWo1RIZiBcTr5urECberTITj7gjA
+
+https://choosealicense.com/
 
 ## History
 <!-- Information about what has changed. -->
