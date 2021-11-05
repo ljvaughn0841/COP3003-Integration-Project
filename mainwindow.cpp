@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "timermode.h"
 #include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -9,11 +8,13 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    // Move the timer into timermode class and rename it to clock ?
-    // ---------------------------------------------------------------------------------------------
-    timer = new QTimer(this); // Creates a timer (consider renaming timer to clock)
-    connect(timer, SIGNAL(timeout()), this, SLOT(myfunction()));
-    // the sender (timer) sends a signal when timer times out to this (MainWindow class) to execute the function
+    timer = new QTimer(this); // Creates a timer
+
+    hourglass = new TimerMode();
+
+    // put in slot the function pointed to by class thing
+    connect(timer, SIGNAL(timeout()), this, SLOT(hourglassFunction()));
+    // the sender (timer) sends a signal when timer times out to execute the hourglass function in the slot
 
 }
 
@@ -21,6 +22,7 @@ MainWindow::~MainWindow()
 {
     delete ui;
     delete timer;
+    delete hourglass;
 }
 
 void MainWindow::on_shopButton_clicked()
@@ -41,9 +43,13 @@ void MainWindow::on_settingsButton_clicked()
 void MainWindow::on_timerButton_clicked()
 {
     timer->start(1000);             // starts the timer if the timer is already started it is restarted
-    static TimerMode hourglass;     // static so that hourglass isnt destroyed and recreated every time button pressed
-    hourglass.timerFlip();          // flips the direction the time flows in TimerMode (+/-)
+    //static TimerMode hourglass;     // static so that hourglass isnt destroyed and recreated every time button pressed
+    //hourglass.timerFlip();          // flips the direction the time flows in TimerMode (+/-)
+}
 
+void MainWindow::hourglassFunction(){   //triggers every second
+    qDebug() << "hourglass function";
+    hourglass->getTimeEarned();
 }
 
 // REMINDER you cannot purchase abilities if your negative or something

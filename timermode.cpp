@@ -5,6 +5,7 @@ TimerMode::TimerMode() // TimerModes constructor
 
 }
 
+
 void TimerMode::timerFlip()
 {
     timerDirection = !timerDirection;
@@ -13,4 +14,9 @@ void TimerMode::timerFlip()
 bool TimerMode::getTimerDirection()
 {
     return timerDirection;
+}
+
+int TimerMode::getTimeEarned()
+{
+    return timeEarned;
 }

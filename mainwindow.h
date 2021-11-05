@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QTimer>
+#include "timermode.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -25,10 +26,11 @@ private slots:
 
     void on_timerButton_clicked();
 
-
+    void hourglassFunction();
 
 private:
     Ui::MainWindow *ui;
     QTimer *timer;          // pointer to a timer
+    TimerMode *hourglass;
 };
 #endif // MAINWINDOW_H
