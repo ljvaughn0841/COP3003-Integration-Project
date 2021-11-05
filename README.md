@@ -19,7 +19,7 @@ The reason I'm making a productivity app for the assignment is because I've been
 
 
 ## Built With
-Visual Studio 2019
+Qt Creator 5.0.2 (Community)
 
 <!-- Add other software / resources used here -->
 
