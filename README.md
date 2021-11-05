@@ -28,7 +28,7 @@ Lou Vaughn
 
 ## License
 <!-- see readme template in aknowladgements for this and all the other areas left blank-->
-
+MIT License
 
 ## Acknowledgments
 <!-- people who helped -->
