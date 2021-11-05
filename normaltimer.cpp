@@ -7,11 +7,11 @@ NormalTimer::NormalTimer()
 
 void NormalTimer::calcTimeEarned()
 {
-    if(timerDirection){ // timerDirection = 1 for postive
-        timeEarned = timeRunning / 10;
+    if(timerDirection){
+        timeEarned += 1 / 10;
     }
     else{
-        timeEarned = timeRunning / 10 * -1;
+        timeEarned += 1 / 10 * -1;
     }
 
 }

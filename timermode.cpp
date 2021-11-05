@@ -5,6 +5,7 @@
 TimerMode::TimerMode() // TimerModes constructor
 {
     timeRunning = 1;
+    timerDirection = 0;
 }
 
 TimerMode::~TimerMode() // timer modes deconstructor
@@ -15,11 +16,10 @@ TimerMode::~TimerMode() // timer modes deconstructor
 
 void TimerMode::timerFlip()
 {
-    qDebug() << "timer should flip";
-    qDebug() << "pre flip " <<timerDirection;
-    timerDirection = !timerDirection; // Why doesnt it work
-    qDebug() << "post flip " <<timerDirection;
-    qDebug() << "timer should have flipped";
+    qDebug() << "timer flip";
+    timerDirection = !timerDirection;   // flips the timer direction
+    timeRunning = 0;                    // sets time running back to zero
+
 }
 
 bool TimerMode::getTimerDirection()
