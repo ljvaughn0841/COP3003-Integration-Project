@@ -35,9 +35,13 @@ Lou Vaughn
 
 <!-- Web sites / tutorials used -->
 https://github.com/PV-COP/PV-README-TEMPLATE/blob/master/TemplateWithInfo.md
+
 https://cpb-us-w2.wpmucdn.com/u.osu.edu/dist/7/11881/files/2018/02/QtCreatorGitTutorial-2ahr2m0.pdf
+
 https://www.toptal.com/developers/gitignore
+
 https://www.youtube.com/playlist?list=PLS1QulWo1RIZiBcTr5urECberTITj7gjA
+
 https://choosealicense.com/
 
 ## History
