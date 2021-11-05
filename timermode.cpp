@@ -2,6 +2,11 @@
 
 TimerMode::TimerMode() // TimerModes constructor
 {
+    timeRunning = 0;
+}
+
+TimerMode::~TimerMode() // timer modes deconstructor
+{
 
 }
 
@@ -19,4 +24,14 @@ bool TimerMode::getTimerDirection()
 int TimerMode::getTimeEarned()
 {
     return timeEarned;
+}
+
+int TimerMode::getTimeRunning() const
+{
+    return timeRunning;
+}
+
+void TimerMode::setTimeRunning()
+{
+    timeRunning = ++timeRunning;
 }

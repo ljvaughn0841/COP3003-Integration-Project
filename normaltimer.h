@@ -7,6 +7,7 @@ class NormalTimer : public TimerMode
 {
 public:
     NormalTimer();
+    void calcTimeEarned();
 };
 
 #endif // NORMALTIMER_H

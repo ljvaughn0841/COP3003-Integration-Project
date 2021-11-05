@@ -18,7 +18,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="shopPage">
        <layout class="QFormLayout" name="formLayout">
@@ -47,35 +47,41 @@
          </widget>
         </item>
         <item row="1" column="0">
-         <widget class="QPushButton" name="pushButton_3">
+         <widget class="QPushButton" name="procrastinatorButton">
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+           <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
           <property name="text">
-           <string>mode</string>
+           <string>Procrastinator</string>
           </property>
          </widget>
         </item>
         <item row="1" column="1">
          <widget class="QLabel" name="label_4">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="text">
            <string>It does this</string>
           </property>
          </widget>
         </item>
         <item row="2" column="0">
-         <widget class="QPushButton" name="pushButton_2">
+         <widget class="QPushButton" name="zoneButton">
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+           <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
           <property name="text">
-           <string>PushButton</string>
+           <string>Zone</string>
           </property>
          </widget>
         </item>
@@ -86,23 +92,23 @@
           </property>
          </widget>
         </item>
-        <item row="3" column="1">
-         <widget class="QLabel" name="label_6">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-        </item>
         <item row="3" column="0">
          <widget class="QPushButton" name="pushButton">
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+           <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
           <property name="text">
-           <string>PushButton</string>
+           <string>something</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QLabel" name="label_6">
+          <property name="text">
+           <string>TextLabel</string>
           </property>
          </widget>
         </item>

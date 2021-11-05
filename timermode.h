@@ -5,14 +5,21 @@
 class TimerMode
 {
 private:
-    int timeEarned;      // total time earned
-    int timeStarted;     // time since you started ? maybe remove this later we dont need to constantly monitor it?
+    float timeEarned;      // total time earned
+    int timeRunning;     // time in seconds since the hourglass was last clicked
     bool timerDirection; // 0 = negative and 1 = positive
+
+
 public:
     TimerMode();
+    virtual ~TimerMode();
     void timerFlip();
     bool getTimerDirection();
     int getTimeEarned();
+
+    virtual void calcTimeEarned();
+    int getTimeRunning() const;
+    void setTimeRunning();
 };
 
 #endif // TIMERMODE_H

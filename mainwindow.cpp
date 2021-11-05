@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     timer = new QTimer(this); // Creates a timer
 
-    hourglass = new TimerMode();
+    hourglass = new NormalTimer(); // default is normal mode
 
     // put in slot the function pointed to by class thing
     connect(timer, SIGNAL(timeout()), this, SLOT(hourglassFunction()));
@@ -27,17 +27,17 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_shopButton_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(0);
+    ui->stackedWidget->setCurrentIndex(0); // sets the page to the shop page
 }
 
 void MainWindow::on_hourglassButton_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(1);
+    ui->stackedWidget->setCurrentIndex(1); // sets the page to the hourglass page
 }
 
 void MainWindow::on_settingsButton_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(2);
+    ui->stackedWidget->setCurrentIndex(2); // sets the page to the settings page
 }
 
 void MainWindow::on_timerButton_clicked()
@@ -49,7 +49,19 @@ void MainWindow::on_timerButton_clicked()
 
 void MainWindow::hourglassFunction(){   //triggers every second
     qDebug() << "hourglass function";
-    hourglass->getTimeEarned();
+
+
+    static_cast<NormalTimer*>(hourglass)->calcTimeEarned();
+
+    // make a virtual function that returns time earned to replace what is below
+
+    hourglass->getTimeEarned(); // This needs to be output to be the time displayed
 }
 
 // REMINDER you cannot purchase abilities if your negative or something
+
+void MainWindow::on_procrastinatorButton_clicked()
+{
+
+}
+

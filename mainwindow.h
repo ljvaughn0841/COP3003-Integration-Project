@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QTimer>
 #include "timermode.h"
+#include "normaltimer.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -27,6 +28,8 @@ private slots:
     void on_timerButton_clicked();
 
     void hourglassFunction();
+
+    void on_procrastinatorButton_clicked();
 
 private:
     Ui::MainWindow *ui;
