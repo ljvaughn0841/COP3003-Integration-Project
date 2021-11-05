@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QTimer>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -15,7 +16,19 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void on_hourglassButton_clicked();
+
+    void on_shopButton_clicked();
+
+    void on_settingsButton_clicked();
+
+    void on_timerButton_clicked();
+
+
+
 private:
     Ui::MainWindow *ui;
+    QTimer *timer;          // pointer to a timer
 };
 #endif // MAINWINDOW_H

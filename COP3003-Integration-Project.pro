@@ -10,10 +10,14 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    normaltimer.cpp \
+    timermode.cpp
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
+    normaltimer.h \
+    timermode.h
 
 FORMS += \
     mainwindow.ui
