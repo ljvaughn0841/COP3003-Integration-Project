@@ -58,11 +58,8 @@ void MainWindow::hourglassFunction(){   //triggers every second
 
     // make a virtual function that returns time earned to replace what is below
 
-    hourglass->getTimeEarned(); // This needs to be output to be the time displayed
-
     static QString timeText; // this string represents the time to display
-    timeText.setNum(hourglass->getTimeEarned()); // the string is set to = the time earned
-
+    timeText.setNum((int)hourglass->getTimeEarned()); // the string is set to = the time earned
     qDebug() << "Time Earned = " << timeText;
     // TODO: FORMAT THE TEXT TO BE -> hours : seconds : minutes
     qDebug() << "timer direction = " << hourglass->getTimerDirection();

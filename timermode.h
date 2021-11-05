@@ -5,7 +5,7 @@
 class TimerMode
 {
 protected:
-    float timeEarned;      // total time earned
+    double timeEarned;      // total time earned
     int timeRunning;     // time in seconds since the hourglass was last flipped
     bool timerDirection; // 0 = negative and 1 = positive
 
