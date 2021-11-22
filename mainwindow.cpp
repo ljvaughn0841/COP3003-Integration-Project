@@ -10,9 +10,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     timer = new QTimer(this); // Creates a timer
 
-    hourglass = new NormalTimer(); // default is normal mode
+    hourglass = new NormalTimer(); // Creates hourglass with its default setting as normal mode
 
-    // put in slot the function pointed to by class thing
     connect(timer, SIGNAL(timeout()), this, SLOT(hourglassFunction()));
     // the sender (timer) sends a signal when timer times out to execute the hourglass function in the slot
 
@@ -60,13 +59,15 @@ void MainWindow::hourglassFunction(){   //triggers every second
 
     static QString timeText; // this string represents the time to display
     timeText.setNum((int)hourglass->getTimeEarned()); // the string is set to = the time earned
-    qDebug() << "Time Earned = " << timeText;
-    // TODO: FORMAT THE TEXT TO BE -> hours : seconds : minutes
-    qDebug() << "timer direction = " << hourglass->getTimerDirection();
 
-    qDebug() << "Timer running = " << hourglass->getTimeRunning();
+    // TODO: format timeText to be -> hours : seconds : minutes
 
     ui->timeLabel->setText(timeText); // the string is outputed to replace text in the timeLabel
+
+    // doesnt change anything in the window just helps with debugging
+    qDebug() << "Time Earned = " << timeText;
+    qDebug() << "timer direction = " << hourglass->getTimerDirection();
+    qDebug() << "Timer running = " << hourglass->getTimeRunning();
 
 }
 
@@ -74,6 +75,35 @@ void MainWindow::hourglassFunction(){   //triggers every second
 
 void MainWindow::on_procrastinatorButton_clicked()
 {
+    if(!hourglass->getTimerDirection()){ // if the timer is running in negative direction
+        qDebug() << "Timer is negative";
+        on_timerButton_clicked(); // flips the timer for you
+    }
+    // turns on procrastination mode
 
+}
+
+
+void MainWindow::on_easyButton_clicked()
+{
+    hourglass->setDifficulty(1);
+}
+
+
+void MainWindow::on_mediumButton_clicked()
+{
+    hourglass->setDifficulty(2);
+}
+
+
+void MainWindow::on_hardButton_clicked()
+{
+    hourglass->setDifficulty(4);
+}
+
+
+void MainWindow::on_insaneButton_clicked()
+{
+    hourglass->setDifficulty(8);
 }
 

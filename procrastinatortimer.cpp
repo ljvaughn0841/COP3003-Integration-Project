@@ -4,3 +4,8 @@ ProcrastinatorTimer::ProcrastinatorTimer()
 {
 
 }
+
+void ProcrastinatorTimer::calcTimeEarned()
+{
+
+}

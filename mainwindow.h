@@ -31,9 +31,17 @@ private slots:
 
     void on_procrastinatorButton_clicked();
 
+    void on_easyButton_clicked();
+
+    void on_mediumButton_clicked();
+
+    void on_hardButton_clicked();
+
+    void on_insaneButton_clicked();
+
 private:
     Ui::MainWindow *ui;
-    QTimer *timer;          // pointer to a timer
+    QTimer *timer;          // pointer to the Qtimer class
     TimerMode *hourglass;
 };
 #endif // MAINWINDOW_H

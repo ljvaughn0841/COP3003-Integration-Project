@@ -2,6 +2,16 @@
 
 #include <QtDebug>
 
+int TimerMode::getDifficulty() const
+{
+    return difficulty;
+}
+
+void TimerMode::setDifficulty(int newDifficulty)
+{
+    difficulty = newDifficulty;
+}
+
 TimerMode::TimerMode() // TimerModes constructor
 {
     timeEarned = 0;

@@ -7,6 +7,7 @@ class ProcrastinatorTimer : public TimerMode
 {
 public:
     ProcrastinatorTimer();
+    void calcTimeEarned();
 };
 
 #endif // PROCRASTINATORTIMER_H

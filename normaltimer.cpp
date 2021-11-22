@@ -5,7 +5,7 @@ NormalTimer::NormalTimer()
 
 }
 
-void NormalTimer::calcTimeEarned()
+void NormalTimer::calcTimeEarned() // consider breaking up the normalTimer into two and removing timeDirection
 {
     if(timerDirection){
         timeEarned += 1. / difficulty;
