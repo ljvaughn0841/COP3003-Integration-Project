@@ -7,6 +7,7 @@ TimerMode::TimerMode() // TimerModes constructor
     timeEarned = 0;
     timeRunning = 1;
     timerDirection = 0;
+    difficulty = 2;
 }
 
 TimerMode::~TimerMode() // timer modes deconstructor

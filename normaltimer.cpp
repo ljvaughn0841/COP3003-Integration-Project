@@ -8,10 +8,10 @@ NormalTimer::NormalTimer()
 void NormalTimer::calcTimeEarned()
 {
     if(timerDirection){
-        timeEarned += 1. / 10.;
+        timeEarned += 1. / difficulty;
     }
     else{
-        timeEarned += 1. / 10. * -1;
+        timeEarned += 1. / difficulty * -1;
     }
     qDebug() << timeEarned;
 }
