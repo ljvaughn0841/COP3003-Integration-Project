@@ -5,6 +5,7 @@
 #include <QTimer>
 #include "timermode.h"
 #include "normaltimer.h"
+#include "procrastinatortimer.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -42,6 +43,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     QTimer *timer;          // pointer to the Qtimer class
-    TimerMode *hourglass;
+    TimerMode *hourglass;   // pointer to the TimerMode class named hourglass
+    int mode;               // mode is used to decide where to static cast the hourglass
 };
 #endif // MAINWINDOW_H

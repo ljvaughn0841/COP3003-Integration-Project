@@ -12,6 +12,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     hourglass = new NormalTimer(); // Creates hourglass with its default setting as normal mode
 
+    mode = 1; // since the hourglass's default is normal mode the mode is default 1
+
     connect(timer, SIGNAL(timeout()), this, SLOT(hourglassFunction()));
     // the sender (timer) sends a signal when timer times out to execute the hourglass function in the slot
 
@@ -49,11 +51,23 @@ void MainWindow::on_timerButton_clicked()
 }
 
 void MainWindow::hourglassFunction(){   //triggers every second
+    qDebug();
     qDebug() << "hourglass function";
 
     hourglass->updateTimeRunning();
     // some sort of switch or something to select the right method
-    static_cast<NormalTimer*>(hourglass)->calcTimeEarned();
+
+
+    switch (mode) {
+    case 1:
+        static_cast<NormalTimer*>(hourglass)->calcTimeEarned(); // TODO: for whatever reason the static casting isnt working
+        qDebug() << "Normal Timer Timer";
+        break;
+    case 2:
+        static_cast<ProcrastinatorTimer*>(hourglass)->calcTimeEarned();
+        qDebug() << "Procrastinator Timer";
+        break;
+    }
 
     // make a virtual function that returns time earned to replace what is below
 
@@ -80,7 +94,7 @@ void MainWindow::on_procrastinatorButton_clicked()
         on_timerButton_clicked(); // flips the timer for you
     }
     // turns on procrastination mode
-
+    mode = 2;
 }
 
 
