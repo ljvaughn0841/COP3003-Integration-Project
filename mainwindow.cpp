@@ -10,7 +10,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     timer = new QTimer(this); // Creates a timer
 
-    hourglass = new NormalTimer(); // Creates hourglass with its default setting as normal mode
+    hourglass = new NormalTimer(); // Creates hourglass with the NormalTimer
+    // Even though hourglass is a pointer to TimerMode it can point to NormalTimer because of subtyping
+    // This is related to object oriented inheritance
 
     mode = 1; // since the hourglass's default is normal mode the mode is default 1
 
@@ -55,17 +57,22 @@ void MainWindow::hourglassFunction(){   //triggers every second
     qDebug() << "hourglass function";
 
     hourglass->updateTimeRunning();
-    // some sort of switch or something to select the right method
+
+    if(!hourglass->getTimerDirection() && hourglass->getTimeRunning() == 1){
+        qDebug() << "Switching back to normal mode direction negative & timerRunning = 1";
+        mode = 1;
+    }
 
 
+    // dynamic disbatch selects the calcTimeEarned function depending on the selected mode
     switch (mode) {
     case 1:
-        static_cast<NormalTimer*>(hourglass)->calcTimeEarned(); // TODO: for whatever reason the static casting isnt working
         qDebug() << "Normal Timer Timer";
+        static_cast<NormalTimer*>(hourglass)->calcTimeEarned();
         break;
     case 2:
-        static_cast<ProcrastinatorTimer*>(hourglass)->calcTimeEarned();
         qDebug() << "Procrastinator Timer";
+        static_cast<ProcrastinatorTimer*>(hourglass)->calcTimeEarned();
         break;
     }
 
@@ -75,6 +82,8 @@ void MainWindow::hourglassFunction(){   //triggers every second
     timeText.setNum((int)hourglass->getTimeEarned()); // the string is set to = the time earned
 
     // TODO: format timeText to be -> hours : seconds : minutes
+
+
 
     ui->timeLabel->setText(timeText); // the string is outputed to replace text in the timeLabel
 
@@ -93,8 +102,14 @@ void MainWindow::on_procrastinatorButton_clicked()
         qDebug() << "Timer is negative";
         on_timerButton_clicked(); // flips the timer for you
     }
-    // turns on procrastination mode
-    mode = 2;
+
+    if(hourglass->getTimeEarned() < 300){ // wont turn on procrastination mode if time earned is greater than 5 mins
+        mode = 2;// turns on procrastination mode
+    }
+    else{
+        // Popup error too high time earned
+    }
+
 }
 
 

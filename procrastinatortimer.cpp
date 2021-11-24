@@ -7,6 +7,7 @@ ProcrastinatorTimer::ProcrastinatorTimer()
 
 void ProcrastinatorTimer::calcTimeEarned()
 {
-    qDebug() << "procrastination timer";
-    timeEarned += 1. / difficulty + 10/timeRunning;
+    // timer starts with a big bonus and the bonus slowly goes down until it is  eventually 1/difficulty
+    timeEarned += 200. / (timeRunning + 42.) + 1. / difficulty;
+    qDebug() << timeEarned;
 }

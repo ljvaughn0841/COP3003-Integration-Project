@@ -17,7 +17,7 @@ public:
     bool getTimerDirection();
     float getTimeEarned();
 
-    virtual void calcTimeEarned();
+    void calcTimeEarned(); // For some reason removing virtual worked
     int getTimeRunning() const;
     void updateTimeRunning();
     void setTimeEarned(float newTimeEarned);
