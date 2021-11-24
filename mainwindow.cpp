@@ -11,8 +11,12 @@ MainWindow::MainWindow(QWidget *parent)
     timer = new QTimer(this); // Creates a timer
 
     hourglass = new NormalTimer(); // Creates hourglass with the NormalTimer
-    // Even though hourglass is a pointer to TimerMode it can point to NormalTimer because of subtyping
-    // This is related to object oriented inheritance
+    // Even though hourglass is declared as a pointer to TimerMode it can point to NormalTimer
+    // because it is a subtype of TimerMode. Subtyping is closely related to object oriented inheritance.
+    // For something to be a subtype it must be able to act as a substitute of the supertype
+    // it can do this by containing the elements of the supertype.
+    // inheritance in object oriented programming allows for codesharing and overriding between classes which
+    // means a derived class is a subtype of the superclass because they contain shared elements.
 
     mode = 1; // since the hourglass's default is normal mode the mode is default 1
 
@@ -63,7 +67,6 @@ void MainWindow::hourglassFunction(){   //triggers every second
         mode = 1;
     }
 
-
     // dynamic disbatch selects the calcTimeEarned function depending on the selected mode
     switch (mode) {
     case 1:
@@ -94,16 +97,22 @@ void MainWindow::hourglassFunction(){   //triggers every second
 
 }
 
-// REMINDER you cannot purchase abilities if your negative or something
+// REMINDER you cannot purchase abilities if your negative
 
 void MainWindow::on_procrastinatorButton_clicked()
 {
-    if(!hourglass->getTimerDirection()){ // if the timer is running in negative direction
-        qDebug() << "Timer is negative";
-        on_timerButton_clicked(); // flips the timer for you
-    }
 
-    if(hourglass->getTimeEarned() < 300){ // wont turn on procrastination mode if time earned is greater than 5 mins
+    if(hourglass->getTimeEarned() < 600 && hourglass->getTimerDirection()){ // turn on procrastination mode if time earned is less than 10 mins
+                                                                            // and the timer is moving in the positive direction
+        if(!hourglass->getTimerDirection()){ // if the timer is running in negative direction
+            qDebug() << "Timer is negative";
+            on_timerButton_clicked(); // flips the timer
+        }
+
+        hourglass->setTimeEarned(hourglass->getTimeEarned()-330); // deducts 330 seconds from timeEarned
+        // using the integegral of the calcTimeEarned function for the ProcrastinatorTimer
+        // the 330 seccond debt would be paid off after using procrastination mode for two minutes
+
         mode = 2;// turns on procrastination mode
     }
     else{
