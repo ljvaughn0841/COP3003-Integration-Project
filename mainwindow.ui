@@ -68,7 +68,8 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>It does this</string>
+           <string>Cost: 330 
+ Description: Starts with bonus which falls over time.</string>
           </property>
          </widget>
         </item>
@@ -88,7 +89,7 @@
         <item row="2" column="1">
          <widget class="QLabel" name="label_5">
           <property name="text">
-           <string>TextLabel</string>
+           <string>dne</string>
           </property>
          </widget>
         </item>

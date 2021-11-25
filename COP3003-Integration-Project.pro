@@ -13,13 +13,15 @@ SOURCES += \
     mainwindow.cpp \
     normaltimer.cpp \
     procrastinatortimer.cpp \
-    timermode.cpp
+    timermode.cpp \
+    zonetimer.cpp
 
 HEADERS += \
     mainwindow.h \
     normaltimer.h \
     procrastinatortimer.h \
-    timermode.h
+    timermode.h \
+    zonetimer.h
 
 FORMS += \
     mainwindow.ui
