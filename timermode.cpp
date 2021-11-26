@@ -12,6 +12,11 @@ void TimerMode::setDifficulty(int newDifficulty)
     difficulty = newDifficulty;
 }
 
+void TimerMode::resetTimeRunning()
+{
+    timeRunning = 0;
+}
+
 TimerMode::TimerMode() // TimerModes constructor
 {
     timeEarned = 0; // amount of total time earned from running the timer gained from calcTimeEanred function

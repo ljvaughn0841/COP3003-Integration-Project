@@ -14,17 +14,18 @@ protected:  // protected so that the subclasses can change them freely
 
 public:
     TimerMode();
-    virtual ~TimerMode();
+    ~TimerMode();
     void timerFlip();           // inverses the timers direction
     bool getTimerDirection();
     float getTimeEarned();
 
-    virtual void calcTimeEarned(); // For some reason this being virtual breaks the static_casting
+    void calcTimeEarned(); // For some reason this being virtual breaks the static_casting
     int getTimeRunning() const;
     void updateTimeRunning();   // increments the time running
     void setTimeEarned(float newTimeEarned);    // used for deducting timeEarned when purchasing mode
     int getDifficulty() const;
     void setDifficulty(int newDifficulty);
+    void resetTimeRunning();
 };
 
 #endif // TIMERMODE_H

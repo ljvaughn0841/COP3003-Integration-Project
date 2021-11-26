@@ -3,9 +3,11 @@
 
 #include <QMainWindow>
 #include <QTimer>
+#include <functional>
 #include "timermode.h"
 #include "normaltimer.h"
 #include "procrastinatortimer.h"
+#include "zonetimer.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -39,6 +41,8 @@ private slots:
     void on_hardButton_clicked();
 
     void on_insaneButton_clicked();
+
+    void on_zoneButton_clicked();
 
 private:
     Ui::MainWindow *ui;

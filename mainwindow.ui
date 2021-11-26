@@ -86,13 +86,6 @@
           </property>
          </widget>
         </item>
-        <item row="2" column="1">
-         <widget class="QLabel" name="label_5">
-          <property name="text">
-           <string>dne</string>
-          </property>
-         </widget>
-        </item>
         <item row="3" column="0">
          <widget class="QPushButton" name="pushButton">
           <property name="sizePolicy">
@@ -112,6 +105,35 @@
            <string>TextLabel</string>
           </property>
          </widget>
+        </item>
+        <item row="2" column="1">
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <widget class="QLabel" name="label_5">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>Cost:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEdit"/>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_10">
+            <property name="text">
+             <string>Place a bet that the timer will run for an amount of time. 
+      (currently in secconds for testing purposes but there should eventually be a minimum limit thats an hour to half an hour) 
+The timer will constantly fall during this time but if the timer runs until the time wagered there will a large reward.</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
        </layout>
       </widget>
