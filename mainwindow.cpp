@@ -61,13 +61,7 @@ void MainWindow::on_timerButton_clicked()
 // I couldn't come up with anything clever to demonstrate operations that take functions as arguments
 // This function just checks to see if the some basic conditions
 auto conditionMet(int x, int y) -> bool{
-    if(x >= y){ // using zone as an example if timerRunning >= the ammount the user bet
-        return 1;
-
-    }
-    else{
-        return 0;
-    }
+    return x >= y; // using zone as an example if timerRunning >= the ammount the user bet
 }
 
 void MainWindow::hourglassFunction(){   //triggers every second
@@ -116,9 +110,9 @@ void MainWindow::hourglassFunction(){   //triggers every second
     // make a virtual function that returns time earned to replace what is below
 
     static QString timeText; // this string represents the time to display
-    timeText.setNum((int)hourglass->getTimeEarned()); // the string is set to = the time earned
+    timeText.setNum(static_cast<int>(hourglass->getTimeEarned())); // the string is set to = the time earned
 
-    // TODO: format timeText to be -> hours : seconds : minutes
+    // TODO(me): format timeText to be -> hours : seconds : minutes
 
     ui->timeLabel->setText(timeText); // the string is outputed to replace text in the timeLabel
 
@@ -171,7 +165,7 @@ void MainWindow::on_zoneButton_clicked()
         QString ammountWagered = ui-> lineEdit->text();
         int bet = ammountWagered.toInt();
 
-        if(hourglass->getTimeEarned() > bet /*&& zoneMinBet < bet*/){
+        if(hourglass->getTimeEarned() > static_cast<float>(bet) /*&& zoneMinBet < bet*/){
             // turn on zone mode if time earned greater than zero and the timer is
 
             // if not moving in the positive direction

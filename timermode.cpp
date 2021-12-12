@@ -2,7 +2,7 @@
 
 #include <QtDebug>
 
-int TimerMode::getDifficulty() const
+auto TimerMode::getDifficulty() const -> int
 {
     return difficulty;
 }
@@ -22,14 +22,11 @@ TimerMode::TimerMode() // TimerModes constructor
     timeEarned = 0; // amount of total time earned from running the timer gained from calcTimeEanred function
     timeRunning = 0;    // the amount of time since the timeDirection was changed
 
-    timerDirection = 0; // starts negative because when the hourglassButton is clicked and timer is started the timer will flip directions
+    timerDirection = false; // starts negative because when the hourglassButton is clicked and timer is started the timer will flip directions
     difficulty = 2; // 2 is default difficulty
 }
 
-TimerMode::~TimerMode() // timer modes deconstructor
-{
-
-}
+TimerMode::~TimerMode() = default; // timer modes default deconstructor
 
 
 void TimerMode::timerFlip()
@@ -40,12 +37,12 @@ void TimerMode::timerFlip()
 
 }
 
-bool TimerMode::getTimerDirection()
+auto TimerMode::getTimerDirection() const -> bool
 {
     return timerDirection;
 }
 
-float TimerMode::getTimeEarned()
+auto TimerMode::getTimeEarned() const -> float
 {
     return TimerMode::timeEarned;
 }
@@ -57,7 +54,7 @@ void TimerMode::setTimeEarned(float newTimeEarned)
 
 void TimerMode::calcTimeEarned(){} // virtual messed up the static_casting
 
-int TimerMode::getTimeRunning() const
+auto TimerMode::getTimeRunning() const -> int
 {
     return timeRunning;
 }
