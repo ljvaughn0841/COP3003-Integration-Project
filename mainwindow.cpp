@@ -81,7 +81,7 @@ void MainWindow::hourglassFunction(){   //triggers every second
     // dynamic disbatch selects the calcTimeEarned function depending on the selected mode
     switch (mode) {
     case 1:
-        qDebug() << "Normal Timer Timer";
+        qDebug() << "Normal Timer";
         ui->modeLabel->setText("Normal Mode");
         static_cast<NormalTimer*>(hourglass)->calcTimeEarned();
         break;
@@ -160,12 +160,12 @@ void MainWindow::on_procrastinatorButton_clicked()
 
 void MainWindow::on_zoneButton_clicked()
 {
-
+    static const int zoneMinBet = 1800; // 1800s = 30m
     if( mode != 3){
         QString ammountWagered = ui-> lineEdit->text();
         int bet = ammountWagered.toInt();
 
-        if(hourglass->getTimeEarned() > static_cast<float>(bet) /*&& zoneMinBet < bet*/){
+        if(hourglass->getTimeEarned() > static_cast<float>(bet) && zoneMinBet < bet){
             // turn on zone mode if time earned greater than zero and the timer is
 
             // if not moving in the positive direction

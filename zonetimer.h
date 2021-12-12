@@ -6,7 +6,7 @@
 class ZoneTimer : public TimerMode
 {
 private:
-    int ammountBet;
+    int ammountBet{};
 
 public:
     ZoneTimer();
