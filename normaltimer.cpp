@@ -1,9 +1,6 @@
 #include "normaltimer.h"
 #include <QDebug>
-NormalTimer::NormalTimer()
-{
-
-}
+NormalTimer::NormalTimer() = default; // define trivial default constructor
 
 void NormalTimer::calcTimeEarned() // consider breaking up the normalTimer into two and removing timeDirection
 {

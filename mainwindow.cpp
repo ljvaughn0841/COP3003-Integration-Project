@@ -60,7 +60,7 @@ void MainWindow::on_timerButton_clicked()
 
 // I couldn't come up with anything clever to demonstrate operations that take functions as arguments
 // This function just checks to see if the some basic conditions
-bool conditionMet(int x, int y){
+auto conditionMet(int x, int y) -> bool{
     if(x >= y){ // using zone as an example if timerRunning >= the ammount the user bet
         return 1;
 
@@ -88,11 +88,12 @@ void MainWindow::hourglassFunction(){   //triggers every second
     switch (mode) {
     case 1:
         qDebug() << "Normal Timer Timer";
+        ui->modeLabel->setText("Normal Mode");
         static_cast<NormalTimer*>(hourglass)->calcTimeEarned();
         break;
     case 2:
         qDebug() << "Procrastinator Timer";
-
+        ui->modeLabel->setText("Procrastinator Mode");
         static_cast<ProcrastinatorTimer*>(hourglass)->calcTimeEarned();
         if(conditionMet(ran, 1800)){    // checks if timer ran for more than 30 mins
             mode = 1;   // if the condition is met then after recieving your points the mode goes back to normal
@@ -101,7 +102,7 @@ void MainWindow::hourglassFunction(){   //triggers every second
         break;
     case 3:
         qDebug() << "Zone Timer";
-
+        ui->modeLabel->setText("Zone Mode");
         static_cast<ZoneTimer*>(hourglass)->calcTimeEarned(ran, bet, &conditionMet); // passes integers ran and bet as well as the bool function conditionMet
         if(conditionMet(ran, bet)){
             mode = 1;   // if the condition is met then after recieving your points the mode goes back to normal
@@ -169,7 +170,8 @@ void MainWindow::on_zoneButton_clicked()
     if( mode != 3){
         QString ammountWagered = ui-> lineEdit->text();
         int bet = ammountWagered.toInt();
-        if(hourglass->getTimerDirection() && hourglass->getTimeEarned() > bet){
+
+        if(hourglass->getTimeEarned() > bet /*&& zoneMinBet < bet*/){
             // turn on zone mode if time earned greater than zero and the timer is
 
             // if not moving in the positive direction
@@ -184,6 +186,7 @@ void MainWindow::on_zoneButton_clicked()
             }
 
             mode = 3;// turns on zone mode
+
             static_cast<ZoneTimer*>(hourglass)->setAmmountBet(bet);
             ui->stackedWidget->setCurrentIndex(1); // brings the user back to the hourglass page
         }
