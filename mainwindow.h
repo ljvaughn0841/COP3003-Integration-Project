@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QPushButton>
 #include <QTimer>
 #include <functional>
 #include "timermode.h"
@@ -22,32 +23,33 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_hourglassButton_clicked();
+    void hourglassButton_clicked();
 
-    void on_shopButton_clicked();
+    void shopButton_clicked();
 
-    void on_settingsButton_clicked();
+    void settingsButton_clicked();
 
-    void on_timerButton_clicked();
+    void timerButton_clicked();
 
     void hourglassFunction();
 
-    void on_procrastinatorButton_clicked();
+    void procrastinatorButton_clicked();
 
-    void on_easyButton_clicked();
+    void easyButton_clicked();
 
-    void on_mediumButton_clicked();
+    void mediumButton_clicked();
 
-    void on_hardButton_clicked();
+    void hardButton_clicked();
 
-    void on_insaneButton_clicked();
+    void insaneButton_clicked();
 
-    void on_zoneButton_clicked();
+    void zoneButton_clicked();
 
 private:
     Ui::MainWindow *ui;
     QTimer *pTimer;          // pointer to the Qtimer class
     TimerMode *pHourglass;   // pointer to the TimerMode class named hourglass
     int mode;               // mode is used to decide where to static cast the hourglass
+
 };
 #endif // MAINWINDOW_H

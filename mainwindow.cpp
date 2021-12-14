@@ -8,7 +8,22 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    pTimer = new QTimer(this); // Creates a timer which is a pointer to the Qtimer
+
+    // connects buttons to the functions they are to execute
+    connect(ui->shopButton,SIGNAL (released()), this, SLOT(shopButton_clicked()));
+    connect(ui->hourglassButton,SIGNAL (released()), this, SLOT(hourglassButton_clicked()));
+    connect(ui->settingsButton,SIGNAL (released()), this, SLOT(settingsButton_clicked()));
+    connect(ui->timerButton,SIGNAL (released()), this, SLOT(timerButton_clicked()));
+    connect(ui->procrastinatorButton,SIGNAL (released()), this, SLOT(procrastinatorButton_clicked()));
+    connect(ui->zoneButton,SIGNAL (released()), this, SLOT(zoneButton_clicked()));
+    connect(ui->easyButton,SIGNAL (released()), this, SLOT(easyButton_clicked()));
+    connect(ui->mediumButton,SIGNAL (released()), this, SLOT(mediumButton_clicked()));
+    connect(ui->hardButton,SIGNAL (released()), this, SLOT(hardButton_clicked()));
+    connect(ui->insaneButton,SIGNAL (released()), this, SLOT(insaneButton_clicked()));
+
+
+
+    pTimer = new QTimer(this); // Creates a pointer to the Qtimer named pTimer
 
     connect(pTimer, SIGNAL(timeout()), this, SLOT(hourglassFunction()));
     // the sender (timer) sends a signal when timer times out to execute the hourglass function in the slot
@@ -32,22 +47,22 @@ MainWindow::~MainWindow()
     delete pHourglass;
 }
 
-void MainWindow::on_shopButton_clicked()
+void MainWindow::shopButton_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0); // sets the page to the shop page
 }
 
-void MainWindow::on_hourglassButton_clicked()
+void MainWindow::hourglassButton_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1); // sets the page to the hourglass page
 }
 
-void MainWindow::on_settingsButton_clicked()
+void MainWindow::settingsButton_clicked()
 {
     ui->stackedWidget->setCurrentIndex(2); // sets the page to the settings page
 }
 
-void MainWindow::on_timerButton_clicked()
+void MainWindow::timerButton_clicked()
 {
     static const int sec = 1000; // 1000ms = 1s
     pTimer->start(sec); // starts the timer and if the timer is already started it is restarted
@@ -128,7 +143,7 @@ void MainWindow::hourglassFunction(){   //triggers every second
 // REMINDER you cannot purchase abilities if your negative
 
 // hourglass->getTimeEarned() < 600 && hourglass->getTimerDirection() && hourglass->getTimeEarned() > 0
-void MainWindow::on_procrastinatorButton_clicked()
+void MainWindow::procrastinatorButton_clicked()
 {
     const int mins10 = 600;
 
@@ -137,7 +152,7 @@ void MainWindow::on_procrastinatorButton_clicked()
         // moving in the positive direction (this also means that it wont start the hourglass)
         if(!pHourglass->getTimerDirection()){ // if the timer is running in negative direction
             qDebug() << "Timer is negative";
-            on_timerButton_clicked(); // flips the timers direction and restarts the timer such that the timerRunning resets
+            timerButton_clicked(); // flips the timers direction and restarts the timer such that the timerRunning resets
         }
 
         else{
@@ -163,7 +178,7 @@ void MainWindow::on_procrastinatorButton_clicked()
 
 }
 
-void MainWindow::on_zoneButton_clicked()
+void MainWindow::zoneButton_clicked()
 {
     static const int zoneMinBet = 1800; // 1800s = 30m
     if( mode != 3){
@@ -176,7 +191,7 @@ void MainWindow::on_zoneButton_clicked()
             // if not moving in the positive direction
             if(!pHourglass->getTimerDirection()){ // if the timer is running in negative direction
                 qDebug() << "Timer is negative";
-                on_timerButton_clicked(); // flips the timers direction and restarts the timer such that the timerRunning resets
+                timerButton_clicked(); // flips the timers direction and restarts the timer such that the timerRunning resets
             }
 
             else{// so the timerRunning is reset in the else below
@@ -198,25 +213,25 @@ void MainWindow::on_zoneButton_clicked()
 enum difficulty{easy, medium = 2, hard = 4, insane = 8};
 
 // the base rate for earned time is 1 / difficulty
-void MainWindow::on_easyButton_clicked()
+void MainWindow::easyButton_clicked()
 {
     pHourglass->setDifficulty(easy);    // sets difficulty to 1
 }
 
 
-void MainWindow::on_mediumButton_clicked()
+void MainWindow::mediumButton_clicked()
 {
     pHourglass->setDifficulty(medium);    // sets difficulty to 2
 }
 
 
-void MainWindow::on_hardButton_clicked()
+void MainWindow::hardButton_clicked()
 {
     pHourglass->setDifficulty(hard);    // sets difficulty to 4
 }
 
 
-void MainWindow::on_insaneButton_clicked()
+void MainWindow::insaneButton_clicked()
 {
     pHourglass->setDifficulty(insane);    // sets difficulty to 8
 }
