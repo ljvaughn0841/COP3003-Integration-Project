@@ -42,12 +42,12 @@ auto TimerMode::getTimerDirection() const -> bool
     return timerDirection;
 }
 
-auto TimerMode::getTimeEarned() const -> float
+auto TimerMode::getTimeEarned() const -> double
 {
     return TimerMode::timeEarned;
 }
 
-void TimerMode::setTimeEarned(float newTimeEarned)
+void TimerMode::setTimeEarned(double newTimeEarned)
 {
     timeEarned = newTimeEarned;
 }

@@ -16,7 +16,8 @@ ZoneTimer::ZoneTimer()
 void ZoneTimer::calcTimeEarned(int ran, int bet, bool (*conditionMet)(int, int))
 {
     if(conditionMet(ran, bet)){
-        timeEarned += timeRunning * 2.0 / difficulty;
+        static const double x = 2.0;
+        timeEarned += timeRunning * x / difficulty;
     }
     else{
         timeEarned -= 1. / difficulty;

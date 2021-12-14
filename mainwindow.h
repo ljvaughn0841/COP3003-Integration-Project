@@ -46,8 +46,8 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    QTimer *timer;          // pointer to the Qtimer class
-    TimerMode *hourglass;   // pointer to the TimerMode class named hourglass
+    QTimer *pTimer;          // pointer to the Qtimer class
+    TimerMode *pHourglass;   // pointer to the TimerMode class named hourglass
     int mode;               // mode is used to decide where to static cast the hourglass
 };
 #endif // MAINWINDOW_H
