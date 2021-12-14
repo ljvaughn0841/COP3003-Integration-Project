@@ -91,6 +91,18 @@ void MainWindow::hourglassFunction(){   //triggers every second
         qDebug() << "Switching back to normal mode direction negative & timerRunning = 1";
         mode = 1;
     }
+
+    if(pHourglass->getTimerDirection()){
+        setStyleSheet("background-color:lightgreen");
+
+    }
+    else if(pHourglass->getTimeEarned() < 0) {
+        setStyleSheet("background-color:#c33c3c");
+    }
+    else{
+        setStyleSheet("background-color:lightcoral");
+    }
+
     int ran = pHourglass->getTimeRunning();
     int bet = static_cast<ZoneTimer*>(pHourglass)->getAmmountBet();
 

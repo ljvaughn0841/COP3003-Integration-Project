@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:lightskyblue;
+</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
@@ -54,6 +58,9 @@
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: white;</string>
+          </property>
           <property name="text">
            <string>Procrastinator</string>
           </property>
@@ -81,6 +88,9 @@
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: white;</string>
+          </property>
           <property name="text">
            <string>Zone</string>
           </property>
@@ -93,6 +103,9 @@
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: white;</string>
           </property>
           <property name="text">
            <string>something</string>
@@ -122,7 +135,11 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit"/>
+           <widget class="QLineEdit" name="lineEdit">
+            <property name="styleSheet">
+             <string notr="true">background-color: white;</string>
+            </property>
+           </widget>
           </item>
           <item>
            <widget class="QLabel" name="label_10">
@@ -191,6 +208,9 @@ The timer will constantly fall during this time but if the timer runs until the 
               <width>100</width>
               <height>100</height>
              </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: white;</string>
             </property>
             <property name="text">
              <string>Timer</string>
@@ -275,6 +295,9 @@ The timer will constantly fall during this time but if the timer runs until the 
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: white;</string>
+          </property>
           <property name="text">
            <string>Medium Difficulty</string>
           </property>
@@ -316,6 +339,9 @@ The timer will constantly fall during this time but if the timer runs until the 
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: white;</string>
+          </property>
           <property name="text">
            <string>Easy Difficulty</string>
           </property>
@@ -329,6 +355,9 @@ The timer will constantly fall during this time but if the timer runs until the 
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: white;</string>
+          </property>
           <property name="text">
            <string>Insane Difficulty</string>
           </property>
@@ -341,6 +370,9 @@ The timer will constantly fall during this time but if the timer runs until the 
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: white;</string>
           </property>
           <property name="text">
            <string>Hard Difficulty</string>
@@ -374,6 +406,9 @@ The timer will constantly fall during this time but if the timer runs until the 
           <height>50</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: white;</string>
+        </property>
         <property name="text">
          <string>Shop</string>
         </property>
@@ -393,6 +428,9 @@ The timer will constantly fall during this time but if the timer runs until the 
           <height>50</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: white;</string>
+        </property>
         <property name="text">
          <string>Hourglass</string>
         </property>
@@ -411,6 +449,9 @@ The timer will constantly fall during this time but if the timer runs until the 
           <width>0</width>
           <height>50</height>
          </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: white;</string>
         </property>
         <property name="text">
          <string>Settings</string>
