@@ -59,7 +59,14 @@
            </sizepolicy>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: white;</string>
+           <string notr="true">QPushButton {
+     background-color: white;
+}
+
+QPushButton:pressed {
+    background-color: whitesmoke;
+}
+</string>
           </property>
           <property name="text">
            <string>Procrastinator</string>
@@ -89,7 +96,14 @@
            </sizepolicy>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: white;</string>
+           <string notr="true">QPushButton {
+     background-color: white;
+}
+
+QPushButton:pressed {
+    background-color: whitesmoke;
+}
+</string>
           </property>
           <property name="text">
            <string>Zone</string>
@@ -105,7 +119,14 @@
            </sizepolicy>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: white;</string>
+           <string notr="true">QPushButton {
+     background-color: white;
+}
+
+QPushButton:pressed {
+    background-color: whitesmoke;
+}
+</string>
           </property>
           <property name="text">
            <string>something</string>
@@ -210,7 +231,14 @@ The timer will constantly fall during this time but if the timer runs until the 
              </size>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: white;</string>
+             <string notr="true">QPushButton {
+     background-color: white;
+}
+
+QPushButton:pressed {
+    background-color: whitesmoke;
+}
+</string>
             </property>
             <property name="text">
              <string>Timer</string>
@@ -296,7 +324,14 @@ The timer will constantly fall during this time but if the timer runs until the 
            </sizepolicy>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: white;</string>
+           <string notr="true">QPushButton {
+     background-color: white;
+}
+
+QPushButton:pressed {
+    background-color: whitesmoke;
+}
+</string>
           </property>
           <property name="text">
            <string>Medium Difficulty</string>
@@ -340,7 +375,14 @@ The timer will constantly fall during this time but if the timer runs until the 
            </sizepolicy>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: white;</string>
+           <string notr="true">QPushButton {
+     background-color: white;
+}
+
+QPushButton:pressed {
+    background-color: whitesmoke;
+}
+</string>
           </property>
           <property name="text">
            <string>Easy Difficulty</string>
@@ -356,7 +398,14 @@ The timer will constantly fall during this time but if the timer runs until the 
            </sizepolicy>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: white;</string>
+           <string notr="true">QPushButton {
+     background-color: white;
+}
+
+QPushButton:pressed {
+    background-color: whitesmoke;
+}
+</string>
           </property>
           <property name="text">
            <string>Insane Difficulty</string>
@@ -372,7 +421,14 @@ The timer will constantly fall during this time but if the timer runs until the 
            </sizepolicy>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: white;</string>
+           <string notr="true">QPushButton {
+     background-color: white;
+}
+
+QPushButton:pressed {
+    background-color: whitesmoke;
+}
+</string>
           </property>
           <property name="text">
            <string>Hard Difficulty</string>
@@ -407,7 +463,14 @@ The timer will constantly fall during this time but if the timer runs until the 
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: white;</string>
+         <string notr="true">QPushButton {
+     background-color: white;
+}
+
+QPushButton:pressed {
+    background-color: whitesmoke;
+}
+</string>
         </property>
         <property name="text">
          <string>Shop</string>
@@ -429,7 +492,14 @@ The timer will constantly fall during this time but if the timer runs until the 
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: white;</string>
+         <string notr="true">QPushButton {
+     background-color: white;
+}
+
+QPushButton:pressed {
+    background-color: whitesmoke;
+}
+</string>
         </property>
         <property name="text">
          <string>Hourglass</string>
@@ -451,7 +521,14 @@ The timer will constantly fall during this time but if the timer runs until the 
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: white;</string>
+         <string notr="true">QPushButton {
+     background-color: white;
+}
+
+QPushButton:pressed {
+    background-color: whitesmoke;
+}
+</string>
         </property>
         <property name="text">
          <string>Settings</string>
