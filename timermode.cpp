@@ -1,8 +1,10 @@
 #include "timermode.h"
 
+#include <cmath>
+
 #include <QtDebug>
 
-auto TimerMode::getDifficulty() const -> int
+auto TimerMode::getDifficulty() -> int
 {
     return difficulty;
 }
@@ -19,6 +21,7 @@ void TimerMode::resetTimeRunning()
 
 TimerMode::TimerMode() // TimerModes constructor
 {
+
     timeEarned = 0; // amount of total time earned from running the timer gained from calcTimeEanred function
     timeRunning = 0;    // the amount of time since the timeDirection was changed
 
@@ -37,12 +40,12 @@ void TimerMode::timerFlip()
 
 }
 
-auto TimerMode::getTimerDirection() const -> bool
+auto TimerMode::getTimerDirection() -> bool
 {
     return timerDirection;
 }
 
-auto TimerMode::getTimeEarned() const -> double
+auto TimerMode::getTimeEarned() -> double
 {
     return TimerMode::timeEarned;
 }
@@ -54,7 +57,7 @@ void TimerMode::setTimeEarned(double newTimeEarned)
 
 void TimerMode::calcTimeEarned(){} // virtual messed up the static_casting
 
-auto TimerMode::getTimeRunning() const -> int
+auto TimerMode::getTimeRunning() -> int
 {
     return timeRunning;
 }

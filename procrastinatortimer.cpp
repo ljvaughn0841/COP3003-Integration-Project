@@ -1,6 +1,8 @@
 #include "procrastinatortimer.h"
 #include <QDebug>
 
+ProcrastinatorTimer::ProcrastinatorTimer() = default; // define trivial default constructor
+
 void ProcrastinatorTimer::calcTimeEarned()
 {
     // timer starts with a big bonus in order to work off the payment

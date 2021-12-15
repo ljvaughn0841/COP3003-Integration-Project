@@ -68,9 +68,9 @@ void MainWindow::timerButton_clicked()
     pTimer->start(sec); // starts the timer and if the timer is already started it is restarted
     // timer executes the connected hourglassFunction every second
 
-    qDebug() << pHourglass->getTimerDirection();
-    pHourglass->timerFlip();          // flips the direction the time flows in TimerMode (+/-)
-    qDebug() << pHourglass->getTimerDirection();
+    qDebug() << TimerMode::getTimerDirection();
+    TimerMode::timerFlip();          // flips the direction the time flows in TimerMode (+/-)
+    qDebug() << TimerMode::getTimerDirection();
 }
 
 
@@ -84,62 +84,63 @@ void MainWindow::hourglassFunction(){   //triggers every second
     qDebug();
     qDebug() << "hourglass function";
 
-    pHourglass->updateTimeRunning(); // increments time running
+    TimerMode::updateTimeRunning(); // increments time running
     // timer running is up here because it should never be zero in case it is used as the divisor in a formula
 
-    if(!pHourglass->getTimerDirection() && pHourglass->getTimeRunning() == 1){
+    if(!TimerMode::getTimerDirection() && TimerMode::getTimeRunning() == 1){
         qDebug() << "Switching back to normal mode direction negative & timerRunning = 1";
         mode = 1;
+        pHourglass = &normal;
     }
 
-    if(pHourglass->getTimerDirection()){
+    if(TimerMode::getTimerDirection()){
         setStyleSheet("background-color:lightgreen");
 
     }
-    else if(pHourglass->getTimeEarned() < 0) {
+    else if(TimerMode::getTimeEarned() < 0) {
         setStyleSheet("background-color:#c33c3c");
     }
     else{
         setStyleSheet("background-color:lightcoral");
     }
 
-    int ran = pHourglass->getTimeRunning();
-    int bet = static_cast<ZoneTimer*>(pHourglass)->getAmmountBet();
+    int ran = TimerMode::getTimeRunning() / TimerMode::getDifficulty();
 
     // dynamic disbatch selects the calcTimeEarned function depending on the selected mode
     switch (mode) {
     case 1:
         qDebug() << "Normal Timer";
         ui->modeLabel->setText("Normal Mode");
-        static_cast<NormalTimer*>(pHourglass)->calcTimeEarned();
+        dynamic_cast<NormalTimer*>(pHourglass)->calcTimeEarned();
         break;
     case 2:
         qDebug() << "Procrastinator Timer";
         ui->modeLabel->setText("Procrastinator Mode");
-        static_cast<ProcrastinatorTimer*>(pHourglass)->calcTimeEarned();
+        dynamic_cast<ProcrastinatorTimer*>(pHourglass)->calcTimeEarned();
         static const int mins30 = 1800;
         if(conditionMet(ran, mins30)){    // checks if timer ran for more than 30 mins
             mode = 1;   // if the condition is met then after recieving your points the mode goes back to normal
+            pHourglass = &normal;
             // timeRunning doesnt need to be reset here
         }
         break;
     case 3:
         qDebug() << "Zone Timer";
         ui->modeLabel->setText("Zone Mode");
-        static_cast<ZoneTimer*>(pHourglass)->calcTimeEarned(ran, bet, &conditionMet); // passes integers ran and bet as well as the bool function conditionMet
+        int bet = dynamic_cast<ZoneTimer*>(pHourglass)->getAmmountBet();
+        ZoneTimer::calcTimeEarned(ran, bet, &conditionMet); // passes integers ran and bet as well as the bool function conditionMet
         if(conditionMet(ran, bet)){
             mode = 1;   // if the condition is met then after recieving your points the mode goes back to normal
+            pHourglass = &normal;
             // timeRunning doesnt need to be reset here
         }
         break;
     }
 
-
-
     // make a virtual function that returns time earned to replace what is below
 
     static QString timeText; // this string represents the time to display
-    timeText.setNum(static_cast<int>(pHourglass->getTimeEarned())); // the string is set to = the time earned
+    timeText.setNum(static_cast<int>(TimerMode::getTimeEarned())); // the string is set to = the time earned
 
     // TODO(me): format timeText to be -> hours : seconds : minutes
 
@@ -147,8 +148,8 @@ void MainWindow::hourglassFunction(){   //triggers every second
 
     // doesnt change anything in the window just helps with debugging
     qDebug() << "Time Earned = " << timeText;
-    qDebug() << "timer direction = " << pHourglass->getTimerDirection();
-    qDebug() << "Timer running = " << pHourglass->getTimeRunning();
+    qDebug() << "timer direction = " << TimerMode::getTimerDirection();
+    qDebug() << "Timer running = " << TimerMode::getTimeRunning();
 
 }
 
@@ -159,16 +160,16 @@ void MainWindow::procrastinatorButton_clicked()
 {
     const int mins10 = 600;
 
-    if(pHourglass->getTimeEarned() < mins10 && pHourglass->getTimeEarned() > 0){
+    if(TimerMode::getTimeEarned() < mins10 && TimerMode::getTimeEarned() > 0){
         // turn on procrastination mode if time earned is less than 10 mins, greater than zero and the timer is
         // moving in the positive direction (this also means that it wont start the hourglass)
-        if(!pHourglass->getTimerDirection()){ // if the timer is running in negative direction
+        if(!TimerMode::getTimerDirection()){ // if the timer is running in negative direction
             qDebug() << "Timer is negative";
             timerButton_clicked(); // flips the timers direction and restarts the timer such that the timerRunning resets
         }
 
         else{
-            pHourglass->resetTimeRunning(); // sets timeRunning to 0
+            TimerMode::resetTimeRunning(); // sets timeRunning to 0
             // timer running resets here because if the timer was running and you activate procrastination mode
             // you probably werent actually doing your work while running the timer
         }
@@ -176,10 +177,11 @@ void MainWindow::procrastinatorButton_clicked()
         const int timeDebt2Mins = 330;
         // using the integegral of the calcTimeEarned function for the ProcrastinatorTimer
         // a 330 seccond debt would be paid off after running procrastination mode for two minutes
-        pHourglass->setTimeEarned(pHourglass->getTimeEarned()-timeDebt2Mins); // deducts 330 seconds from timeEarned
+        TimerMode::setTimeEarned(TimerMode::getTimeEarned()-timeDebt2Mins); // deducts 330 seconds from timeEarned
 
 
         mode = 2;// turns on procrastination mode
+        pHourglass = &prcr;
 
         ui->stackedWidget->setCurrentIndex(1); // brings the user back to the hourglass page
     }
@@ -192,28 +194,29 @@ void MainWindow::procrastinatorButton_clicked()
 
 void MainWindow::zoneButton_clicked()
 {
-    static const int zoneMinBet = 1800; // 1800s = 30m
+    static const int zoneMinBet = 2; // 1800s = 30m
     if( mode != 3){
         QString ammountWagered = ui-> lineEdit->text();
         int bet = ammountWagered.toInt();
-
-        if(pHourglass->getTimeEarned() > static_cast<double>(bet) && zoneMinBet < bet){
+        if(TimerMode::getTimeEarned() > static_cast<double>(bet) && zoneMinBet < bet){
             // turn on zone mode if time earned greater than zero and the timer is
 
             // if not moving in the positive direction
-            if(!pHourglass->getTimerDirection()){ // if the timer is running in negative direction
+            if(!TimerMode::getTimerDirection()){ // if the timer is running in negative direction
                 qDebug() << "Timer is negative";
                 timerButton_clicked(); // flips the timers direction and restarts the timer such that the timerRunning resets
             }
 
             else{// so the timerRunning is reset in the else below
-                pHourglass->resetTimeRunning(); // sets timeRunning to 0
+                TimerMode::resetTimeRunning(); // sets timeRunning to 0
 
             }
 
             mode = 3;// turns on zone mode
+            pHourglass = &zone;
 
-            static_cast<ZoneTimer*>(pHourglass)->setAmmountBet(bet);
+            dynamic_cast<ZoneTimer*>(pHourglass)->setAmmountBet(bet);// need pHourglass to point respective timer when dynamic casting
+
             ui->stackedWidget->setCurrentIndex(1); // brings the user back to the hourglass page
         }
         else{
@@ -227,23 +230,23 @@ enum difficulty{easy, medium = 2, hard = 4, insane = 8};
 // the base rate for earned time is 1 / difficulty
 void MainWindow::easyButton_clicked()
 {
-    pHourglass->setDifficulty(easy);    // sets difficulty to 1
+    TimerMode::setDifficulty(easy);    // sets difficulty to 1
 }
 
 
 void MainWindow::mediumButton_clicked()
 {
-    pHourglass->setDifficulty(medium);    // sets difficulty to 2
+    TimerMode::setDifficulty(medium);    // sets difficulty to 2
 }
 
 
 void MainWindow::hardButton_clicked()
 {
-    pHourglass->setDifficulty(hard);    // sets difficulty to 4
+    TimerMode::setDifficulty(hard);    // sets difficulty to 4
 }
 
 
 void MainWindow::insaneButton_clicked()
 {
-    pHourglass->setDifficulty(insane);    // sets difficulty to 8
+    TimerMode::setDifficulty(insane);    // sets difficulty to 8
 }

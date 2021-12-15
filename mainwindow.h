@@ -35,13 +35,13 @@ private slots:
 
     void procrastinatorButton_clicked();
 
-    void easyButton_clicked();
+    static void easyButton_clicked();
 
-    void mediumButton_clicked();
+    static void mediumButton_clicked();
 
-    void hardButton_clicked();
+    static void hardButton_clicked();
 
-    void insaneButton_clicked();
+    static void insaneButton_clicked();
 
     void zoneButton_clicked();
 
@@ -50,6 +50,10 @@ private:
     QTimer *pTimer;          // pointer to the Qtimer class
     TimerMode *pHourglass;   // pointer to the TimerMode class named hourglass
     int mode;               // mode is used to decide where to static cast the hourglass
+
+    NormalTimer normal;
+    ProcrastinatorTimer prcr;
+    ZoneTimer zone;
 
 };
 #endif // MAINWINDOW_H

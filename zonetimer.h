@@ -6,11 +6,11 @@
 class ZoneTimer : public TimerMode
 {
 private:
-    int ammountBet{};
+    int ammountBet = 0;
 
 public:
     ZoneTimer();
-    void calcTimeEarned(int ran, int bet, bool (*conditionMet)(int, int));
+    static void calcTimeEarned(int ran, int bet, bool (*conditionMet)(int, int));
     void setAmmountBet(int newAmmountBet);
     int getAmmountBet() const;
 };
