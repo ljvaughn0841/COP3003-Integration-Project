@@ -1,0 +1,54 @@
+\hypertarget{class_zone_timer}{}\doxysection{Zone\+Timer Class Reference}
+\label{class_zone_timer}\index{ZoneTimer@{ZoneTimer}}
+Inheritance diagram for Zone\+Timer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_zone_timer}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_zone_timer_ab36b26bfce6e5df40769d95604114df3}\label{class_zone_timer_ab36b26bfce6e5df40769d95604114df3}} 
+{\bfseries Zone\+Timer} ()
+\begin{DoxyCompactList}\small\item\em default constructor \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_zone_timer_a3467ded10fe8e6e09a8287a3dda75b32}\label{class_zone_timer_a3467ded10fe8e6e09a8287a3dda75b32}} 
+void {\bfseries set\+Ammount\+Bet} (int new\+Ammount\+Bet)
+\begin{DoxyCompactList}\small\item\em setter for the ammount bet \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_zone_timer_a270720db179d8d8891df15b0d2cb6a5d}\label{class_zone_timer_a270720db179d8d8891df15b0d2cb6a5d}} 
+int {\bfseries get\+Ammount\+Bet} () const
+\begin{DoxyCompactList}\small\item\em getter for the ammount bet \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_zone_timer_a6fef9cf34b360a7c6b62042b9014803b}{calc\+Time\+Earned}} (int ran, int bet, bool($\ast$\mbox{\hyperlink{mainwindow_8cpp_a713e8b107603ee012d8310b202c412e0}{condition\+Met}})(int, int))
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_zone_timer_a6fef9cf34b360a7c6b62042b9014803b}{Zone\+Timer\+::calc\+Time\+Earned}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_zone_timer_a6fef9cf34b360a7c6b62042b9014803b}\label{class_zone_timer_a6fef9cf34b360a7c6b62042b9014803b}} 
+\index{ZoneTimer@{ZoneTimer}!calcTimeEarned@{calcTimeEarned}}
+\index{calcTimeEarned@{calcTimeEarned}!ZoneTimer@{ZoneTimer}}
+\doxysubsubsection{\texorpdfstring{calcTimeEarned()}{calcTimeEarned()}}
+{\footnotesize\ttfamily void Zone\+Timer\+::calc\+Time\+Earned (\begin{DoxyParamCaption}\item[{int}]{ran,  }\item[{int}]{bet,  }\item[{bool($\ast$)(int, int)}]{condition\+Met }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+\mbox{\hyperlink{class_zone_timer_a6fef9cf34b360a7c6b62042b9014803b}{Zone\+Timer\+::calc\+Time\+Earned}}. 
+
+Overrides \mbox{\hyperlink{class_timer_mode}{Timer\+Mode}}\textquotesingle{}s pure virtual calc\+Time\+Earned if the conditions are met the user recieves double their bet with half the difficulty reduction. This is essentially difficulty tax evasion that incentivises time comitments in order to reduce your difficulty by about a level.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ran} & \\
+\hline
+{\em bet} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+User/\+Documents/\+Qt/\+COP3003-\/\+Integration-\/\+Project/\mbox{\hyperlink{zonetimer_8h}{zonetimer.\+h}}\item 
+C\+:/\+Users/\+User/\+Documents/\+Qt/\+COP3003-\/\+Integration-\/\+Project/zonetimer.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,66 @@
+\hypertarget{mainwindow_8h_source}{}\doxysection{mainwindow.\+h}
+\label{mainwindow_8h_source}\index{C:/Users/User/Documents/Qt/COP3003-\/Integration-\/Project/mainwindow.h@{C:/Users/User/Documents/Qt/COP3003-\/Integration-\/Project/mainwindow.h}}
+\mbox{\hyperlink{mainwindow_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#ifndef MAINWINDOW\_H}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#define MAINWINDOW\_H}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <QMainWindow>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <QPushButton>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <QTimer>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <functional>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{timermode_8h}{timermode.h}}"{}}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{normaltimer_8h}{normaltimer.h}}"{}}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{procrastinatortimer_8h}{procrastinatortimer.h}}"{}}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{zonetimer_8h}{zonetimer.h}}"{}}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 QT\_BEGIN\_NAMESPACE}
+\DoxyCodeLine{24 \textcolor{keyword}{namespace }Ui \{ \textcolor{keyword}{class }\mbox{\hyperlink{class_main_window}{MainWindow}}; \}}
+\DoxyCodeLine{25 QT\_END\_NAMESPACE}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{class }\mbox{\hyperlink{class_main_window}{MainWindow}} : \textcolor{keyword}{public} QMainWindow}
+\DoxyCodeLine{28 \{}
+\DoxyCodeLine{29     Q\_OBJECT}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{keyword}{public}:}
+\DoxyCodeLine{32     \mbox{\hyperlink{class_main_window_a996c5a2b6f77944776856f08ec30858d}{MainWindow}}(QWidget *parent = \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{33     \mbox{\hyperlink{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}{\string~MainWindow}}();}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{keyword}{private} slots:}
+\DoxyCodeLine{36     \textcolor{keywordtype}{void} hourglassButton\_clicked();}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keywordtype}{void} shopButton\_clicked();}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{keywordtype}{void} settingsButton\_clicked();}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{keywordtype}{void} timerButton\_clicked();}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{keywordtype}{void} hourglassFunction();}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \textcolor{keywordtype}{void} procrastinatorButton\_clicked();}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{keyword}{static} \textcolor{keywordtype}{void} easyButton\_clicked();}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{keyword}{static} \textcolor{keywordtype}{void} mediumButton\_clicked();}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{keyword}{static} \textcolor{keywordtype}{void} hardButton\_clicked();}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     \textcolor{keyword}{static} \textcolor{keywordtype}{void} insaneButton\_clicked();}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{keywordtype}{void} zoneButton\_clicked();}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \textcolor{keyword}{private}:}
+\DoxyCodeLine{59     Ui::MainWindow *ui;}
+\DoxyCodeLine{60     QTimer *pTimer;          \textcolor{comment}{// pointer to the Qtimer class}}
+\DoxyCodeLine{61     \mbox{\hyperlink{class_timer_mode}{TimerMode}} *pHourglass;   \textcolor{comment}{// pointer to the TimerMode class named hourglass}}
+\DoxyCodeLine{62     \textcolor{keywordtype}{int} mode;               \textcolor{comment}{// mode is used to decide where to static cast the hourglass}}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     \mbox{\hyperlink{class_normal_timer}{NormalTimer}} normal;}
+\DoxyCodeLine{65     \mbox{\hyperlink{class_procrastinator_timer}{ProcrastinatorTimer}} prcr;}
+\DoxyCodeLine{66     \mbox{\hyperlink{class_zone_timer}{ZoneTimer}} zone;}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 \};}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// MAINWINDOW\_H}}
+
+\end{DoxyCode}

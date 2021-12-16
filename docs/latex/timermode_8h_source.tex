@@ -1,0 +1,38 @@
+\hypertarget{timermode_8h_source}{}\doxysection{timermode.\+h}
+\label{timermode_8h_source}\index{C:/Users/User/Documents/Qt/COP3003-\/Integration-\/Project/timermode.h@{C:/Users/User/Documents/Qt/COP3003-\/Integration-\/Project/timermode.h}}
+\mbox{\hyperlink{timermode_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#ifndef TIMERMODE\_H}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#define TIMERMODE\_H}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{class }\mbox{\hyperlink{class_timer_mode}{TimerMode}} \textcolor{comment}{// super class for all the modes for the timer}}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20 \textcolor{keyword}{protected}:  \textcolor{comment}{// protected so that the subclasses can change them freely}}
+\DoxyCodeLine{21             \textcolor{comment}{// but they are encapsulated from the rest of the program}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{keyword}{inline} \textcolor{keyword}{static} \textcolor{keywordtype}{double} timeEarned = 0;      \textcolor{comment}{// total time earned}}
+\DoxyCodeLine{24     \textcolor{keyword}{inline} \textcolor{keyword}{static} \textcolor{keywordtype}{int} timeRunning = 0;        \textcolor{comment}{// time in seconds since the hourglass was last flipped}}
+\DoxyCodeLine{25     \textcolor{keyword}{inline} \textcolor{keyword}{static} \textcolor{keywordtype}{bool} timerDirection = \textcolor{keyword}{false};    \textcolor{comment}{// 0 = negative and 1 = positive}}
+\DoxyCodeLine{26     \textcolor{keyword}{inline} \textcolor{keyword}{static} \textcolor{keywordtype}{int} \mbox{\hyperlink{mainwindow_8cpp_a6bdf1adf0ba98c2dad6d1e5b19e5a897}{difficulty}} = 2;         \textcolor{comment}{// difficulty is used in the calcTimeEarned}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{keyword}{public}:}
+\DoxyCodeLine{30     \mbox{\hyperlink{class_timer_mode}{TimerMode}}();}
+\DoxyCodeLine{31     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_timer_mode}{\string~TimerMode}}();}
+\DoxyCodeLine{32     \textcolor{keyword}{static} \textcolor{keywordtype}{void} timerFlip();           \textcolor{comment}{// inverses the timers direction}}
+\DoxyCodeLine{33     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} getTimerDirection() ;}
+\DoxyCodeLine{34     \textcolor{keyword}{static} \textcolor{keywordtype}{double} getTimeEarned() ;}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} calcTimeEarned();}
+\DoxyCodeLine{37     \textcolor{keyword}{static} \textcolor{keywordtype}{int} getTimeRunning() ;}
+\DoxyCodeLine{38     \textcolor{keyword}{static} \textcolor{keywordtype}{void} updateTimeRunning();   \textcolor{comment}{// increments the time running}}
+\DoxyCodeLine{39     \textcolor{keyword}{static} \textcolor{keywordtype}{void} setTimeEarned(\textcolor{keywordtype}{double} newTimeEarned);    \textcolor{comment}{// used for deducting timeEarned when purchasing mode}}
+\DoxyCodeLine{40     \textcolor{keyword}{static} \textcolor{keywordtype}{int} getDifficulty() ;}
+\DoxyCodeLine{41     \textcolor{keyword}{static} \textcolor{keywordtype}{void} setDifficulty(\textcolor{keywordtype}{int} newDifficulty);}
+\DoxyCodeLine{42     \textcolor{keyword}{static} \textcolor{keywordtype}{void} resetTimeRunning();}
+\DoxyCodeLine{43 \};}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TIMERMODE\_H}}
+
+\end{DoxyCode}
