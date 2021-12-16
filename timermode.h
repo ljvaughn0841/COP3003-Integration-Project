@@ -14,10 +14,10 @@
 #ifndef TIMERMODE_H
 #define TIMERMODE_H
 
-
+// LO1.
 class TimerMode // super class for all the modes for the timer
 {
-protected:  // protected so that the subclasses can change them freely
+protected:  // LO2a. protected so that the subclasses can change them freely
             // but they are encapsulated from the rest of the program
 
     inline static double timeEarned = 0;      // total time earned
@@ -33,7 +33,7 @@ public:
     static bool getTimerDirection() ;
     static double getTimeEarned() ;
 
-    virtual void calcTimeEarned();
+    virtual void calcTimeEarned(); // LO6. pure virtual function makes TimerMode an interface
     static int getTimeRunning() ;
     static void updateTimeRunning();   // increments the time running
     static void setTimeEarned(double newTimeEarned);    // used for deducting timeEarned when purchasing mode

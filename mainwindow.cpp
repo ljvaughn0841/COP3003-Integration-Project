@@ -17,7 +17,7 @@
       functions. Also connects the Qtimer to the hourglass function and initializes
       the pointer to Timermode and the mode.
     */
-MainWindow::MainWindow(QWidget *parent)
+MainWindow::MainWindow(QWidget *parent) // LO1c.
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
@@ -44,6 +44,7 @@ MainWindow::MainWindow(QWidget *parent)
     // the sender (timer) sends a signal when timer times out to execute the hourglass function in the slot
 
     pHourglass = new NormalTimer(); // Creates hourglass with the NormalTimer
+    // LO5.
     // Even though hourglass is declared as a pointer to TimerMode it can point to NormalTimer
     // because it is a subtype of TimerMode. Subtyping is closely related to object oriented inheritance.
     // For something to be a subtype it must be able to act as a substitute of the supertype
@@ -152,7 +153,7 @@ void MainWindow::hourglassFunction(){   //triggers every second
     }
 
     int ran = TimerMode::getTimeRunning() / TimerMode::getDifficulty();
-
+    // LO3.
     // dynamic disbatch selects the calcTimeEarned function depending on the selected mode
     switch (mode) {
     case 1:

@@ -29,7 +29,7 @@ ZoneTimer::ZoneTimer()
  * \param ran
  * \param bet
  */
-void ZoneTimer::calcTimeEarned(int ran, int bet, bool (*conditionMet)(int, int))
+void ZoneTimer::calcTimeEarned(int ran, int bet, bool (*conditionMet)(int, int))//LO7.
 {
 
     if(conditionMet(ran, bet)){

@@ -23,7 +23,7 @@
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
-
+//LO1a.
 class MainWindow : public QMainWindow
 {
     Q_OBJECT

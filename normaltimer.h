@@ -14,11 +14,11 @@
 
 #include "timermode.h"
 
-class NormalTimer : public TimerMode
+class NormalTimer : public TimerMode // LO2.
 {
 public:
     NormalTimer();
-    void calcTimeEarned();
+    void calcTimeEarned(); //LO1b.
 };
 
 #endif // NORMALTIMER_H

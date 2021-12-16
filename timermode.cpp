@@ -18,7 +18,6 @@ void TimerMode::resetTimeRunning()
 {
     timeRunning = 0;
 }
-
 TimerMode::TimerMode() // TimerModes constructor
 {
 
