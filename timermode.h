@@ -1,3 +1,16 @@
+/*! @file timermode.h
+ *  @brief Header file for the timer mode.
+ *
+ *  Timer mode is a superclass of all the other timers
+ *  besides calcTimeEarned which is a virtual function
+ *  that is called with a pointer to timermode all other functions
+ *  are static and may be called with TimerMode::function();
+ *  All the variables it contains are static so that they are shared
+ *  amongst objects of its derived classes.
+ *
+ *  @author Lou Vaughn
+ *  @bug No known bugs.
+ */
 #ifndef TIMERMODE_H
 #define TIMERMODE_H
 

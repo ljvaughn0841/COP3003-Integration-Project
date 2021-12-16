@@ -1,3 +1,14 @@
+/*! @file zonetimer.h
+ *  @brief Header file for the zone timer mode.
+ *
+ *  Zone timer is a derived class of timer mode.
+ *  Contains declarations for a default constructor
+ *  and a function calcTimeEarned that overrides
+ *  timermode's virtual calcTimeEarned
+ *
+ *  @author Lou Vaughn
+ *  @bug No known bugs.
+ */
 #ifndef ZONETIMER_H
 #define ZONETIMER_H
 

@@ -1,7 +1,22 @@
+/*! @file mainwindow.cpp
+ *  @brief the main window
+ *
+ *  Contains the setup for UI  and its connections as well as the
+ *  logic for buttons, the timer, and its functions.
+ *
+ *  @author Lou Vaughn
+ *  @bug No known bugs.
+ */
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QDebug>
 
+//! Main Window's Constuctor.
+    /*!
+      Sets up the UI and connects the pushbuttons to their designated
+      functions. Also connects the Qtimer to the hourglass function and initializes
+      the pointer to Timermode and the mode.
+    */
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -39,7 +54,10 @@ MainWindow::MainWindow(QWidget *parent)
     mode = 1; // since the hourglass's default is normal mode the mode is default 1
 
 }
-
+//! A deconstructor.
+    /*!
+      deletes dynamically allocated resources
+    */
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -47,21 +65,33 @@ MainWindow::~MainWindow()
     delete pHourglass;
 }
 
+//! When shopButton is clicked it goes to the shop page
 void MainWindow::shopButton_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0); // sets the page to the shop page
 }
 
+//! When hourglassButton is clicked it goes to the hourglass page
 void MainWindow::hourglassButton_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1); // sets the page to the hourglass page
 }
 
+//! When settingsButton is clicked it goes to the settings page
 void MainWindow::settingsButton_clicked()
 {
     ui->stackedWidget->setCurrentIndex(2); // sets the page to the settings page
 }
 
+
+/*!
+ * \brief MainWindow::timerButton_clicked
+ *
+ * sets the timer to start and execute the function every second
+ * if the timer has already started this will restart it.
+ * It also flips the timers direction in TimerMode.
+ *
+ */
 void MainWindow::timerButton_clicked()
 {
     static const int sec = 1000; // 1000ms = 1s
@@ -76,10 +106,27 @@ void MainWindow::timerButton_clicked()
 
 // I couldn't come up with anything clever to demonstrate operations that take functions as arguments
 // This function just checks to see if the some basic conditions
+
+/*!
+ * \brief conditionMet
+ *
+ * I couldn't come up with anything clever to demonstrate
+ * operations that take functions as arguments so this function
+ * simply returns x>=y
+ *
+ * \param x
+ * \param y
+ * \return boolean
+ */
 auto conditionMet(int x, int y) -> bool{
     return x >= y; // using zone as an example if timerRunning >= the ammount the user bet
 }
-
+/*!
+ * \brief MainWindow::hourglassFunction
+ *
+ * Executes every timeout signal from the Qtimer (in our case 1 seccond)
+ * This function updates the values in TimerMode and the UI with the results.
+ */
 void MainWindow::hourglassFunction(){   //triggers every second
     qDebug();
     qDebug() << "hourglass function";
@@ -153,14 +200,19 @@ void MainWindow::hourglassFunction(){   //triggers every second
 
 }
 
-// REMINDER you cannot purchase abilities if your negative
-
-// hourglass->getTimeEarned() < 600 && hourglass->getTimerDirection() && hourglass->getTimeEarned() > 0
+/*!
+ * \brief MainWindow::procrastinatorButton_clicked
+ *
+ * executes when the procrastinator button in the shop menu is clicked
+ * if conditions are met to enter procrastination mode it updates the
+ * pointer to hourglass, and the time earned taking away 330 secconds which
+ * can be regained after two minutes in procrastinator mode.
+ */
 void MainWindow::procrastinatorButton_clicked()
 {
     const int mins10 = 600;
 
-    if(TimerMode::getTimeEarned() < mins10 && TimerMode::getTimeEarned() > 0){
+    if(TimerMode::getTimeEarned() < mins10 && TimerMode::getTimeEarned() > 0 && mode !=2){
         // turn on procrastination mode if time earned is less than 10 mins, greater than zero and the timer is
         // moving in the positive direction (this also means that it wont start the hourglass)
         if(!TimerMode::getTimerDirection()){ // if the timer is running in negative direction
@@ -191,7 +243,13 @@ void MainWindow::procrastinatorButton_clicked()
 
 
 }
-
+/*!
+ * \brief MainWindow::zoneButton_clicked
+ *
+ * executes when zone button in the shop menu is clicked
+ * if conditions are met to enter zone mode it updates the
+ * pointer to hourglass, and the bet in zoneTimer
+ */
 void MainWindow::zoneButton_clicked()
 {
     static const int zoneMinBet = 2; // 1800s = 30m
@@ -225,27 +283,35 @@ void MainWindow::zoneButton_clicked()
     }
 }
 
+
+//! An enum where each difficulty is 2x the previous
 enum difficulty{easy, medium = 2, hard = 4, insane = 8};
 
 // the base rate for earned time is 1 / difficulty
+
+//! Executes when easy button in settings is clicked
+//! sets the difficulty to 1
 void MainWindow::easyButton_clicked()
 {
     TimerMode::setDifficulty(easy);    // sets difficulty to 1
 }
 
-
+//! Executes when :medium button in settings is clicked
+//! sets the difficulty to 2
 void MainWindow::mediumButton_clicked()
 {
     TimerMode::setDifficulty(medium);    // sets difficulty to 2
 }
 
-
+//! Executes when hard button in settings is clicked
+//! sets the difficulty to 4
 void MainWindow::hardButton_clicked()
 {
     TimerMode::setDifficulty(hard);    // sets difficulty to 4
 }
 
-
+//! Executes when insane button in settings is clicked
+//! sets the difficulty to 8
 void MainWindow::insaneButton_clicked()
 {
     TimerMode::setDifficulty(insane);    // sets difficulty to 8

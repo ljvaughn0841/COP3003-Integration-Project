@@ -1,3 +1,13 @@
+/*! @file mainwindow.h
+ *  @brief Header file for the main window.
+ *
+ *  Contains declarations for the pushbuttons, pointer to qtimer,
+ *  pointer to timermode, int mode, and objects of the derived
+ *  classes of the interface timermode.
+ *
+ *  @author Lou Vaughn
+ *  @bug No known bugs.
+ */
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 

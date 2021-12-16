@@ -1,8 +1,11 @@
 #include "normaltimer.h"
 #include <QDebug>
-NormalTimer::NormalTimer() = default; // define trivial default constructor
+//! default constructor
+NormalTimer::NormalTimer() = default;
 
-void NormalTimer::calcTimeEarned() // consider breaking up the normalTimer into two and removing timeDirection
+//! Normal calcTimeEarned
+//! timeEarned increases by 1 / difficulty every seccond
+void NormalTimer::calcTimeEarned()
 {
     if(timerDirection){
         timeEarned += 1. / difficulty;
