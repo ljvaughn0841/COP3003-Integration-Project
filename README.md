@@ -10,7 +10,7 @@ The reason I'm making a productivity app for the assignment is because I've been
 ![Vq7nbaRU7l](https://user-images.githubusercontent.com/72235620/146294263-4f2d8927-520a-48ed-aeda-5584652ef108.gif)
 
 ## Documentation
-https://ljvaughn0841.github.io/COP3003-Integration-Project/
+https://ljvaughn0841.github.io/COP3003-Integration-Project/html/
 
 ## Clang-Tidy & Clazy Code Analysis
 ![Capture](https://user-images.githubusercontent.com/72235620/146400166-9237e8db-dba7-4d52-bfe5-01d2c9408cae.JPG)
